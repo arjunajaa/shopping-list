@@ -17,10 +17,16 @@ def show_main(request):
     products = Product.objects.all()
 
     context = {
+<<<<<<< HEAD
         'name': request.user.username, # Nama kamu
         'class': 'PBP F', # Kelas PBP kamu
         'products': products,
         'last_login': request.COOKIES['last_login'],
+=======
+        'name': 'Arju Naja', # Nama kamu
+        'class': 'PBP F', # Kelas PBP kamu
+        'products': products
+>>>>>>> aff1b11b306a68404e919c519d7022491f0fded0
     }
 
     return render(request, "main.html", context)
@@ -49,6 +55,7 @@ def show_xml_by_id(request, id):
 def show_json_by_id(request, id):
     data = Product.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+<<<<<<< HEAD
 
 def register(request):
     form = UserCreationForm()
@@ -82,3 +89,5 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+=======
+>>>>>>> aff1b11b306a68404e919c519d7022491f0fded0
